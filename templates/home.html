@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Student Lifestyle Stress Predictor</title>
+    <link rel="stylesheet" href="static/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Stress Level Predictor</h1>
+      <p class="subtitle">
+        Enter your daily lifestyle habits to predict stress level
+      </p>
+
+      <form action="/" method="post">
+        <div class="form-group">
+          <div>
+            <label> Study Hours Per Day</label>
+            <input
+              type="number"
+              name="study_hours"
+              placeholder="e.g. 5.3"
+              min="0"
+              max="24"
+              step="0.1"
+              value="{{study_hours}}"
+              required
+            />
+            <p class="ques">How many hours do you study daily?</p>
+          </div>
+          <div>
+            <label>Sleep Hours Per Day</label>
+            <input
+              type="number"
+              name="sleep_hours"
+              placeholder="e.g. 8"
+              min="0"
+              max="24"
+              step="0.1"
+              value="{{sleep_hours}}"
+              required
+            />
+            <p class="ques">How many hours do you sleep daily?</p>
+          </div>
+          <div>
+            <label>Social Hours Per Day</label>
+            <input
+              type="number"
+              name="social_hours"
+              placeholder="e.g. 4.2"
+              min="0"
+              max="24"
+              step="0.1"
+              value="{{social_hours}}"
+              required
+            />
+            <p class="ques">Time spent with friends, socializing</p>
+          </div>
+          <div>
+            <label>Physical Activity Hours Per Day</label>
+            <input
+              type="number"
+              name="physical_activity"
+              placeholder="e.g. 3"
+              min="0"
+              max="24"
+              step="0.1"
+              value="{{physical_activity}}"
+              required
+            />
+            <p class="ques">Gym, sports, walking, exercise</p>
+          </div>
+          <div>
+            <label>Extracurricular Hours Per Day</label>
+            <input
+              type="number"
+              name="extracurricular"
+              placeholder="e.g. 3.5"
+              min="0"
+              max="24"
+              step="0.1"
+              value="{{extracurricular}}"
+              required
+            />
+            <p class="ques">Clubs, events, volunteering</p>
+          </div>
+          <div>
+            <label>Current GPA</label>
+            <input
+              type="number"
+              name="gpa"
+              placeholder="e.g. 2.75"
+              min="0"
+              max="4"
+              step="0.01"
+              value="{{gpa}}"
+              required
+            />
+            <p class="ques">Your current GPA out of 4.0</p>
+          </div>
+
+          <input class="btn" type="submit" value="Predict My Stress Level" />
+        </div>
+      </form>
+
+      {% if result %}
+      <div
+        class="result-box {% if 'Low' in result %}low {% elif 'Moderate' in result %}moderate {% elif 'High' in result %}high {% endif %}"
+      >
+        <h2>Prediction Result</h2>
+        <p>{{ result }}</p>
+        <p>{{ confidence }} %</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -65,9 +65,9 @@ class DataTransformation:
 
             logging.info(f"Label encoding: {dict(zip(encoder.classes_, encoder.transform(encoder.classes_)))}")
 
-            X_train = train_df.drop(target_column, axis=1)
+            X_train = train_df.drop([target_column,"Student_ID"], axis=1)
             y_train = train_df[target_column]
-            X_test  = test_df.drop(target_column, axis=1)
+            X_test  = test_df.drop([target_column,"Student_ID"], axis=1)
             y_test  = test_df[target_column]
 
             preprocessing_obj = self.get_data_transformer_object()
