@@ -1,10 +1,10 @@
 pandas
 numpy
-scikit-learn==1.3.2
+scikit-learn==1.7
 seaborn
 matplotlib
 xgboost
 flask
 dill
-mlflow
+mlflow==2.22.0
 gunicorn
