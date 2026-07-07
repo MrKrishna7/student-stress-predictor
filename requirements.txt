@@ -7,3 +7,4 @@ xgboost
 flask
 dill
 mlflow
+gunicorn

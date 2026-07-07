@@ -98,12 +98,10 @@ mlartifacts/
 # =========================================================
 # Model Artifacts
 # =========================================================
-artifacts/
+
 models/
 saved_models/
-
-*.pkl
-*.pickle
+*.csv
 *.joblib
 *.dill
 *.h5
